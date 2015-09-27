@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CAGR Stock</title>
+  <meta charset="utf-8">
+  <meta name="description" content="CAGR Stock">
+  <meta name="author" content="BL Khoo">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>CAGR Stock</h1>
+    <h2>Identifying the low enough price for positive CAGR stock</h2>
+    <p>BL Khoo<br/>shiny app</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>CAGR and Stock Inflation concept</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Stock price in general increase over time if the fundamental is right that is the business is profitable.
+This means that the stock price growth can be modeld as the fundamental stock inflation.
+This would result in the stock prices that can be modeled as \(price = 2^t\).</p>
+
+<p>Stock price (TA) then is a technical reflection of the fundamental (FA) and the sentiments and psychology of the market (PA). </p>
+
+<pre><code>                                  TA = PA + FA
+</code></pre>
+
+<p>We created or assumed a model where the CAGR trend based on the linear regression is at the neutral or fair growth trend of the FA , which is the fundamental growth of the company. Any residual or error from the neutral CAGR then is considered as part of the PA or market price gyration due to fear or greed. </p>
+
+<p>The right price to have high probability gain would then be to identify the lowest points , given a line that is still parallel to the neutral regression line.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Facilitating the price discovery via  simple shiny app and positive CAGR</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The shiny app created is a simple visualization of the app to identify the price low enough based on historical trend and leverage on the linear regression model to do the estimation and use trend line offset.
+This requires the application of the logarithm to the stock price to get  a straight line fit as far as possible particularly for  positive CAGR stock.</p>
+
+<p><img src=assets/img/shinyapp.png style="width: 750px"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Linear regression model on log Price.</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The stock data is obtained from yahoo and consist of the following variables in time series dataset.</p>
+
+<pre><code>##             open  high   low close      vol price year mth
+## 2015-09-23 15.60 15.85 15.58 15.72 77240300 15.72 2015   9
+## 2015-09-24 15.54 15.62 15.40 15.55 97752800 15.55 2015   9
+## 2015-09-25 15.88 16.02 15.81 15.89 88260000 15.89 2015   9
+</code></pre>
+
+<p>a linear regression line is added and anothe offset LM line parallel to the LM line (indicated as black line) is created and allow the line to  shift by offset value. 
+The idea is to have the line shifted to touch the lowest price points at least two of them to idenity the lowest support line.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Plot illustrating the LM and offset LM lines</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/fig/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>The End</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='CAGR and Stock Inflation concept'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Facilitating the price discovery via  simple shiny app and positive CAGR'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Linear regression model on log Price.'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Plot illustrating the LM and offset LM lines'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='The End'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
